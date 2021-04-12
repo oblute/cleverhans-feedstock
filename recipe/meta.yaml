@@ -1,18 +1,18 @@
 {% set name = "cleverhans" %}
-{% set version = "3.0.1" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b70998704bbb1c9b776c9bb87bf70104bddf4753cd5af5adda5a0ce340bc74c6
+  url: https://github.com/cleverhans-lab/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: b3fb659ccead20a966f52690d72d1ce1dbd115f4d23dd11175e563c37a4bdeee
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -33,13 +33,13 @@ test:
     - cleverhans
 
 about:
-  home: https://github.com/tensorflow/cleverhans
+  home: https://github.com/cleverhans-lab/cleverhans
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: This repository contains the source code for CleverHans, a Python library to benchmark machine learning systems' vulnerability to adversarial examples.
   doc_url: https://pypi.org/project/cleverhans/#description
-  dev_url: https://github.com/tensorflow/cleverhans
+  dev_url: https://github.com/cleverhans-lab/cleverhans
 
 extra:
   recipe-maintainers:
